@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌾 Hay Day Supply Chain Assistant</title>
+    <meta
+      name="description"
+      content="Calculate raw materials, production steps, and time estimates for your Hay Day farm."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- ── Header ──────────────────────────────────────────────────────── -->
+    <header>
+      <span class="header-icon">🌾</span>
+      <div>
+        <h1>Hay Day Supply Chain Assistant</h1>
+        <p>Select products, set quantities, and instantly see what you need to grow and craft.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- ── Step 1 – Choose Products ─────────────────────────────────── -->
+      <section class="panel" aria-labelledby="step1-title">
+        <h2 class="panel-title" id="step1-title">
+          <span>1️⃣</span> Choose Products
+        </h2>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="🔍  Filter products…"
+          aria-label="Search products"
+        />
+        <div id="product-grid" role="list" aria-label="Available products"></div>
+      </section>
+
+      <!-- ── Step 2 – Set Quantities ───────────────────────────────────── -->
+      <section class="panel" aria-labelledby="step2-title">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <h2 class="panel-title" id="step2-title" style="margin-bottom:0">
+            <span>2️⃣</span> Set Quantities
+          </h2>
+          <button id="clear-btn" aria-label="Clear all selections">Clear All</button>
+        </div>
+        <div id="selected-list" aria-live="polite" aria-label="Selected products"></div>
+      </section>
+
+      <!-- ── Step 3 – Farm Configuration ──────────────────────────────── -->
+      <section class="panel" aria-labelledby="step3-title">
+        <h2 class="panel-title" id="step3-title">
+          <span>3️⃣</span> Farm Configuration
+        </h2>
+        <div class="config-grid">
+          <div class="config-field">
+            <label for="field-count">
+              🌾 Number of Fields / Plots
+              <span title="How many crop fields you can plant in parallel">(ℹ)</span>
+            </label>
+            <input
+              id="field-count"
+              type="number"
+              min="1"
+              max="100"
+              value="1"
+              aria-label="Number of fields"
+            />
+          </div>
+          <div class="config-field">
+            <label for="building-count">
+              🏭 Production Buildings per Type
+              <span title="How many bakeries, dairies, etc. you operate simultaneously">(ℹ)</span>
+            </label>
+            <input
+              id="building-count"
+              type="number"
+              min="1"
+              max="100"
+              value="1"
+              aria-label="Number of production buildings"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Step 4 – Results ──────────────────────────────────────────── -->
+      <section class="panel" aria-labelledby="step4-title">
+        <h2 class="panel-title" id="step4-title">
+          <span>4️⃣</span> Results
+        </h2>
+        <div id="results-section" aria-live="polite" aria-label="Calculation results"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Hay Day Supply Chain Assistant &mdash; fan-made tool, not affiliated with Supercell.</p>
+    </footer>
+
+    <!-- Scripts: data first, then calculator logic, then UI -->
+    <script src="js/data.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
